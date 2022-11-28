@@ -4,6 +4,7 @@ public class ATM {
     public static void main(String[] args) {
         String cardNumber, password;
         double amount;
+        String curCardNumber = "";
 
         Server server = new Server();
 
@@ -52,8 +53,10 @@ public class ATM {
                         System.out.println("Input password: ");
                         password = scanner.next();
 
-                        if (server.logIn(cardNumber, password))
+                        if (server.logIn(cardNumber, password)) {
                             isLogIn = true;
+                            curCardNumber = cardNumber;
+                        }
                         break;
                     case 3:
                         isActive=false;
@@ -73,30 +76,21 @@ public class ATM {
 
                 switch (choose) {
                     case 1:
-                        System.out.println("Input card number: ");
-                        cardNumber = scanner.next();
-
-                        System.out.println(server.getAmount(cardNumber));
+                        System.out.println(server.getAmount(curCardNumber));
                         break;
                     case 2:
-                        System.out.println("Input card number: ");
-                        cardNumber = scanner.next();
-
                         System.out.println("Input amount: ");
                         amount = scanner.nextDouble();
-                        server.putMoney(cardNumber, amount);
+                        server.putMoney(curCardNumber, amount);
                         break;
                     case 3:
-                        System.out.println("Input card number: ");
-                        cardNumber = scanner.next();
-
                         System.out.println("Input password: ");
                         password = scanner.next();
 
                         System.out.println("Input amount: ");
                         amount = scanner.nextDouble();
 
-                        server.getMoney(cardNumber, password, amount);
+                        server.getMoney(curCardNumber, password, amount);
                         break;
                     case 4:
                         isLogIn = false;
