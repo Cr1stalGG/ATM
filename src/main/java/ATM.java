@@ -38,7 +38,7 @@ public class ATM {
                 switch (choose) {
                     case 1:
 
-                        System.out.println("Input card number: ");
+                        System.out.println("Input card number(XXXX-XXXX-XXXX-XXXX): ");
                         cardNumber = scanner.next();
 
                         System.out.println("Input password: ");

@@ -57,6 +57,7 @@ public class DBController {
         try {
             writer = new BufferedWriter(new FileWriter(file, true));
         } catch (IOException e) {
+            System.out.println("Something goes wrong:");
             e.printStackTrace();
         }
         try {
@@ -64,10 +65,9 @@ public class DBController {
             writer.close();
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Something goes wrong:");
+            e.printStackTrace();
         }
-
-
     }
 
     public String returnDataByCardnumber(String cardNumber){
@@ -96,6 +96,7 @@ public class DBController {
         }
         try (FileOutputStream fos = new FileOutputStream(path, false)) { }
         catch (IOException e) {
+            System.out.println("Something goes wrong:");
             e.printStackTrace();
         }
 
