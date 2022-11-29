@@ -20,7 +20,7 @@ public class ATM {
 
         String clientsMenu = """
                 ATM SYSTEM
-                1. Check balance    
+                1. Check balance
                 2. Put money
                 3. Get money
                 4. Back
